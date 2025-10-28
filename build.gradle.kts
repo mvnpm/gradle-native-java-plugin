@@ -33,8 +33,7 @@ dependencies {
 
 signing {
     useGpgCmd()
-    val isLocal = publishing.repositories.any { it.name == "MavenLocal" }
-    if (!isLocal) {
+    if (!project.hasProperty("skipSigning")) {
         sign(publishing.publications)
     }
 }
