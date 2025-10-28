@@ -1,8 +1,6 @@
 plugins {
     `java-gradle-plugin`
     `maven-publish`
-    `signing`
-    id("com.gradle.plugin-publish") version "1.2.1"
 }
 
 
