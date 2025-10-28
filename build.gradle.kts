@@ -7,7 +7,7 @@ plugins {
 
 
 group = "io.mvnpm.gradle.plugin"
-version = "1.0.0"
+version = "1.0.1"
 
 
 gradlePlugin {
@@ -33,7 +33,10 @@ dependencies {
 
 signing {
     useGpgCmd()
-    sign(publishing.publications)
+    val isLocal = publishing.repositories.any { it.name == "MavenLocal" }
+    if (!isLocal) {
+        sign(publishing.publications)
+    }
 }
 
 publishing {
