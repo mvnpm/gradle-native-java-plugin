@@ -31,12 +31,12 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 }
 
+/*
 signing {
     useGpgCmd()
-    if (!project.hasProperty("skipSigning")) {
-        sign(publishing.publications)
-    }
+    sign(publishing.publications)
 }
+*/
 
 publishing {
     repositories {
