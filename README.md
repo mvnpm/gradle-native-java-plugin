@@ -18,7 +18,6 @@ This enables Gradle to automatically select the correct variant of libraries tha
 - ✅ Safe to use with existing libraries — attributes are only used for variant matching if the library defines them.
 - ✅ Compatible with both **Groovy** and **Kotlin DSL** builds.
 - ✅ Automatically detects host OS and architecture.
-- ✅ Sets `org.gradle.jvm.version` for modern JVM compatibility.
 - ✅ No configuration required — just apply the plugin.
 
 ---
