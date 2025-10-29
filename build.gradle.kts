@@ -1,17 +1,18 @@
 plugins {
     `java-gradle-plugin`
     `maven-publish`
+    id("com.gradle.plugin-publish") version "1.2.1" apply false
 }
 
-val signingEnabled = project.hasProperty("signingEnabled")
-if (signingEnabled) {
+val gradlePublish = project.hasProperty("gradlePublish")
+if (gradlePublish) {
     plugins.apply("signing")
     plugins.apply("com.gradle.plugin-publish")
 }
 
 
 group = "io.mvnpm.gradle.plugin"
-version = "1.0.1"
+version = "1.0.0"
 
 
 gradlePlugin {
@@ -37,7 +38,7 @@ dependencies {
 }
 
 
-if (signingEnabled) {
+if (gradlePublish) {
     configure<SigningExtension> {
         useGpgCmd()
         sign(publishing.publications)
