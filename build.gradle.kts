@@ -3,6 +3,12 @@ plugins {
     `maven-publish`
 }
 
+val signingEnabled = project.hasProperty("signingEnabled")
+if (signingEnabled) {
+    plugins.apply("signing")
+    plugins.apply("com.gradle.plugin-publish")
+}
+
 
 group = "io.mvnpm.gradle.plugin"
 version = "1.0.1"
@@ -15,8 +21,9 @@ gradlePlugin {
         id = "io.mvnpm.gradle.plugin.native-java-plugin"
         implementationClass = "io.mvnpm.gradle.plugin.NativeJavaPlugin"
         displayName = "Native Java Plugin"
-        description = "Automatically sets \"org.gradle.native.operatingSystem\" and \"org.gradle.native.architecture\" attributes for variant resolution on JVM builds."
-        tags= listOf("native", "jvm", "architecture", "operatingSystem", "os", "variants")
+        description =
+            "Automatically sets \"org.gradle.native.operatingSystem\" and \"org.gradle.native.architecture\" attributes for variant resolution on JVM builds."
+        tags = listOf("native", "jvm", "architecture", "operatingSystem", "os", "variants")
     }
 }
 
@@ -29,12 +36,13 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 }
 
-/*
-signing {
-    useGpgCmd()
-    sign(publishing.publications)
+
+if (signingEnabled) {
+    configure<SigningExtension> {
+        useGpgCmd()
+        sign(publishing.publications)
+    }
 }
-*/
 
 publishing {
     repositories {
