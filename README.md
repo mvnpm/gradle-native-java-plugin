@@ -6,8 +6,8 @@ Until this becomes a standard feature in Gradle (gradle/gradle#34845), this plug
 
 Automatically sets the following attributes on all configurations:
 
-- `org.gradle.native.operatingSystem` → current OS (`macos`, `linux`, `windows`)
-- `org.gradle.native.architecture` → current architecture (`x86-64`, `aarch64`)
+- `org.gradle.native.operatingSystem` → current OS ([OperatingSystemFamily](https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/OperatingSystemFamily.html)) (`macos`, `linux`, `windows`)
+- `org.gradle.native.architecture` → current architecture ([MachineArchitecture](https://docs.gradle.org/current/javadoc/org/gradle/platform/Architecture.html)) (`x86-64`, `aarch64`, `x86`)
 
 This enables Gradle to automatically select the correct variant of libraries that publish platform-specific or JVM-version-specific artifacts (e.g., [`esbuild-java`](https://github.com/gluck/esbuild-java)).
 
