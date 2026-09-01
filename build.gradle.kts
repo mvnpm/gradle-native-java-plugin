@@ -12,7 +12,7 @@ if (gradlePublish) {
 
 
 group = "io.mvnpm.gradle.plugin"
-version = "1.0.0"
+version = "1.1.0"
 
 
 gradlePlugin {
@@ -24,6 +24,14 @@ gradlePlugin {
         displayName = "Native Java Plugin"
         description =
             "Automatically sets \"org.gradle.native.operatingSystem\" and \"org.gradle.native.architecture\" attributes for variant resolution on JVM builds."
+        tags = listOf("native", "jvm", "architecture", "operatingSystem", "os", "variants")
+    }
+    plugins.register("nativeJavaSettingsPlugin") {
+        id = "io.mvnpm.gradle.plugin.native-java-settings-plugin"
+        implementationClass = "io.mvnpm.gradle.plugin.NativeJavaSettingsPlugin"
+        displayName = "Native Java Plugin"
+        description =
+            "Automatically sets \"org.gradle.native.operatingSystem\" and \"org.gradle.native.architecture\" attributes for variant resolution on plugins."
         tags = listOf("native", "jvm", "architecture", "operatingSystem", "os", "variants")
     }
 }
