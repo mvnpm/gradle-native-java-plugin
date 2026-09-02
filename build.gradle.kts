@@ -1,7 +1,7 @@
 plugins {
     `java-gradle-plugin`
     `maven-publish`
-    id("com.gradle.plugin-publish") version "1.2.1" apply false
+    id("com.gradle.plugin-publish") version "2.1.1" apply false
 }
 
 val gradlePublish = project.hasProperty("gradlePublish")
@@ -12,7 +12,7 @@ if (gradlePublish) {
 
 
 group = "io.mvnpm.gradle.plugin"
-version = "1.1.0"
+version = "1.1.1"
 
 
 gradlePlugin {

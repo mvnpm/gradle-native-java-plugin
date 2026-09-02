@@ -25,7 +25,10 @@ import static io.mvnpm.gradle.plugin.NativeJavaPlugin.getOperatingSystemFamily;
 public class NativeJavaSettingsPlugin implements Plugin<Settings> {
     private final ObjectFactory objects;
 
-    /** @param objects Gradle object factory injected by Gradle. */
+    /**
+     * Creates a new instance.
+     * @param objects Gradle object factory injected by Gradle.
+     */
     @Inject
     public NativeJavaSettingsPlugin(ObjectFactory objects) {
         this.objects = objects;

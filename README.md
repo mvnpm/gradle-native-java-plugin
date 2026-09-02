@@ -81,4 +81,49 @@ Pull requests and issues are welcome! If you find a bug or want to suggest a fea
 
 ---
 
+## Releasing
+
+### Prerequisites
+
+**GPG signing key**
+
+Add the following to `~/.gradle/gradle.properties` (never commit this file):
+
+```properties
+signing.keyId=<last 8 chars of your GPG key ID>
+signing.password=<your GPG key passphrase>
+```
+
+Generate a key if you don't have one:
+```bash
+gpg --gen-key
+gpg --list-secret-keys --keyid-format SHORT  # note the key ID
+gpg --keyserver keyserver.ubuntu.com --send-keys <keyId>
+```
+
+**On macOS**, GPG requires `pinentry-mac` to prompt for the passphrase:
+```bash
+brew install pinentry-mac
+echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+gpgconf --kill gpg-agent
+```
+
+**Gradle Plugin Portal credentials**
+
+Add to `~/.gradle/gradle.properties`:
+```properties
+gradle.publish.key=<your portal API key>
+gradle.publish.secret=<your portal API secret>
+```
+
+Get these from your account at [plugins.gradle.org](https://plugins.gradle.org).
+
+### Publishing
+
+```bash
+./gradlew publishPlugins -PgradlePublish
+```
+
+---
+
 
