@@ -12,7 +12,7 @@ if (gradlePublish) {
 
 
 group = "io.mvnpm.gradle.plugin"
-version = "1.1.1"
+version = "1.1.2"
 
 
 gradlePlugin {
@@ -33,6 +33,12 @@ gradlePlugin {
         description =
             "Automatically sets \"org.gradle.native.operatingSystem\" and \"org.gradle.native.architecture\" attributes for variant resolution on plugins."
         tags = listOf("native", "jvm", "architecture", "operatingSystem", "os", "variants")
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 

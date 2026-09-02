@@ -27,14 +27,14 @@ This enables Gradle to automatically select the correct variant of libraries tha
 **Kotlin DSL (`build.gradle.kts`)**
 ```kotlin
 plugins {
-    id("io.mvnpm.gradle.plugin.native-java-plugin") version "1.1.1"
+    id("io.mvnpm.gradle.plugin.native-java-plugin") version "1.1.2"
 }
 ```
 
 **Groovy DSL (`build.gradle`)**
 ```groovy
 plugins {
-    id 'io.mvnpm.gradle.plugin.native-java-plugin' version '1.1.1'
+    id 'io.mvnpm.gradle.plugin.native-java-plugin' version '1.1.2'
 }
 ```
 
@@ -45,14 +45,14 @@ If you need the same kind of resolution on plugins then you can do
 **Kotlin DSL (`settings.gradle.kts`)**
 ```kotlin
 plugins {
-    id("io.mvnpm.gradle.plugin.native-java-settings-plugin") version "1.1.1"
+    id("io.mvnpm.gradle.plugin.native-java-settings-plugin") version "1.1.2"
 }
 ```
 
 **Groovy DSL (`settings.gradle`)**
 ```groovy
 plugins {
-    id 'io.mvnpm.gradle.plugin.native-java-settings-plugin' version '1.1.1'
+    id 'io.mvnpm.gradle.plugin.native-java-settings-plugin' version '1.1.2'
 }
 ```
 
