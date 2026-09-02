@@ -52,7 +52,7 @@ plugins {
 **Groovy DSL (`settings.gradle`)**
 ```groovy
 plugins {
-    id 'io.mvnpm.gradle.plugin.native-java-settings-plugin' version '1.1.0'
+    id 'io.mvnpm.gradle.plugin.native-java-settings-plugin' version '1.1.1'
 }
 ```
 
