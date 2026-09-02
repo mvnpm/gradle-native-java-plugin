@@ -2,14 +2,12 @@ package io.mvnpm.gradle.plugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.initialization.Settings;
-import org.gradle.api.logging.Logger;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.nativeplatform.MachineArchitecture;
 import org.gradle.nativeplatform.OperatingSystemFamily;
 import org.gradle.util.GradleVersion;
 
 import javax.inject.Inject;
-import java.util.Optional;
 
 import static io.mvnpm.gradle.plugin.NativeJavaPlugin.addAttributes;
 import static io.mvnpm.gradle.plugin.NativeJavaPlugin.getMachineArchitecture;
@@ -27,6 +25,7 @@ import static io.mvnpm.gradle.plugin.NativeJavaPlugin.getOperatingSystemFamily;
 public class NativeJavaSettingsPlugin implements Plugin<Settings> {
     private final ObjectFactory objects;
 
+    /** @param objects Gradle object factory injected by Gradle. */
     @Inject
     public NativeJavaSettingsPlugin(ObjectFactory objects) {
         this.objects = objects;
@@ -34,9 +33,8 @@ public class NativeJavaSettingsPlugin implements Plugin<Settings> {
 
     @Override
     public void apply(Settings settings) {
-        Optional<Logger> logger = Optional.empty();
-        final OperatingSystemFamily detectedOs = getOperatingSystemFamily(objects, logger);
-        final MachineArchitecture detectedArch = getMachineArchitecture(objects, logger);
+        final OperatingSystemFamily detectedOs = getOperatingSystemFamily(objects);
+        final MachineArchitecture detectedArch = getMachineArchitecture(objects);
 
         if (detectedOs != null || detectedArch != null) {
             if(GradleVersion.current().compareTo(GradleVersion.version("8.8")) >= 0) {
